@@ -1,0 +1,92 @@
+#include"stdio.h"
+#include"string.h"
+main()
+{
+    char a[]="3+4";
+    int i,s=a[0]-48;
+    for(i=1;a[i]!='\0';i=i+2)
+      {
+	if(a[i]=='+')
+          s=s+(a[i+1]-48);
+	else
+         s=s-(a[i+1]-48);
+	}
+	printf("%d",s);
+}
+
+
+
+
+#include"stdio.h"
+#include"string.h"
+main()
+{
+    char a[]="2+3+5-2";
+    int i,s=a[0]-48;
+    for(i=1;a[i]!='\0';i=i+2)
+      {
+	if(a[i]=='+')
+          s=s+(a[i+1]-48);
+	else
+         s=s-(a[i+1]-48);
+	}
+	printf("%d",s);
+}
+
+
+
+
+#include"stdio.h"
+#include"string.h"
+main()
+{
+   char a[]="2*3*5/2";
+   int i,s=a[0]-48;
+   for(i=1;a[i]!='\0';i=i+2)
+    {
+     if(a[i]=='*')
+       s=s*(a[i+1]-48);
+     else
+       s=s/(a[i+1]-48);
+     }
+    printf("%d",s);
+}
+
+
+
+
+
+#include"stdio.h"
+#include"string.h"
+main()
+{
+    char ch[12]="2+2*3+2/2-1",a[10];
+    int i,j=0,s=0;
+    for(i=0;i<=strlen(ch);i++)
+      {
+	if(ch[i]>='0'&&ch[i]<='9')
+	  a[j++]=ch[i];
+	if(ch[i]=='+'||ch[i]=='-')
+          a[j++]=ch[i];
+	if(ch[i]=='*')
+	  {
+	     a[j-1]=((ch[i-1]-48)*(ch[i+1]-48))+'0';
+	     i++;
+	   }
+        if(ch[i]=='/')
+	  {
+  	     a[j-1]=((ch[i-1]-48)/(ch[i+1]-48))+'0';
+             i++;
+	   }
+	}
+    s=a[0]-48;
+    for(i=1;a[i]!='\0';i=i+2)
+      {
+	if(a[i]=='+')
+	  s=s+(a[i+1]-48);
+	else
+          s=s-(a[i+1]-48);
+	}
+    printf("结果为%d",s);
+	
+}
